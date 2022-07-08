@@ -14,8 +14,8 @@ public class TiposTransporte {
     private TransporteTaxi ttaxi;
     private TransporteBus ttbus;
     private TransporteTransvia transvia;
-    private TransporteAereo aereo;
-    private TransporteMaritimo maritimo;
+//    private TransporteAereo aereo;
+//    private TransporteMaritimo maritimo;
     
     public void establecerTransporteTaxi(TransporteTaxi taxi){
         ttaxi = taxi;
@@ -23,6 +23,10 @@ public class TiposTransporte {
     
     public void establecerTransporteBus(TransporteBus bus){
         ttbus = bus;
+    }
+    
+    public void establecerTransporteTransvia(TransporteTransvia trvia){
+        transvia = trvia;
     }
     
     public TransporteTaxi obtenerTransporteTaxi(){
@@ -33,9 +37,14 @@ public class TiposTransporte {
         return ttbus;
     }
     
+    public TransporteTransvia obtenerTransporteTranvia(){
+        return transvia;
+    }
+    
     public void establecerPromedioTarifas(){
         promedioTarifas = (obtenerTransporteBus().obtenerTarifa() + 
-                obtenerTransporteTaxi().obtenerTarifa())/2;
+                obtenerTransporteTaxi().obtenerTarifa() + 
+                obtenerTransporteTranvia().obtenerTarifa())/3;
         
     }
     

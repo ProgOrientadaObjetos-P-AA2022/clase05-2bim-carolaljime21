@@ -3,6 +3,10 @@
  */
 package paquete04;
 
+import java.util.ArrayList;
+
+// Cambios - 8 - julio - 2022
+
 /**
  *
  * @author reroes
@@ -17,9 +21,16 @@ public class Principal {
         taxi.establecerCooperativaTaxi("Yahuarcuna");
         taxi.establecerTarifa();
         
+        TransporteTransvia transvia = new TransporteTransvia();
+        transvia.establecerCooperativaBus("Zamora Huayco");
+        transvia.establecerTarifa();
+        
         TiposTransporte tipos = new TiposTransporte();
-        tipos.establecerTransporteBus(bus);
-        tipos.establecerTransporteTaxi(taxi);
+        ArrayList<Transporte> transp = new ArrayList<>();
+        transp.add(bus);
+        transp.add(taxi);
+        transp.add(transvia);
+        tipos.establecerTransportes(transp);
         tipos.establecerPromedioTarifas();
         
         System.out.printf("Promedio de Tarifas: %.2f", 
